@@ -16,6 +16,9 @@ const winPatterns = [
 let currentUser = "X";
 let gameStatus = true;
 
+let x_wins = 0;
+let o_wins = 0;
+
 // Possible mappings of user input
 const cellMap = {
   one: [0, 0],
@@ -38,7 +41,7 @@ updateTurn();
 
 // Clicking either reset, or new_game simply resets all the cells and text. 
 document.querySelector(".reset").addEventListener("click", resetGame);
-document.querySelector(".new_game").addEventListener("click", resetGame);
+document.querySelector(".new_game").addEventListener("click", newGame);
 
 // Required functions to make the tic tac toe work. This implementation is strictly for PVP, will implement AI later. 
 
@@ -65,6 +68,13 @@ function userMove(e) {
     if (winChecker()) {
         document.querySelector(".display_player").textContent = `${currentUser} wins!`;
         gameStatus = false;
+        if (currentUser === "X") {
+            x_wins++;
+            document.querySelector(".x_wins").textContent = x_wins;
+        } else {
+            o_wins++;
+            document.querySelector(".o_wins").textContent = o_wins;
+        }
         return;
     }
 
@@ -112,6 +122,23 @@ function winChecker() {
   });
 }
 
+function newGame() {
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      board[r][c] = "";
+    }
+  }
+
+  // clear UI
+  document.querySelectorAll(".xo").forEach(cell => {
+    cell.textContent = "";
+  });
+
+  currentUser = "X";
+  gameStatus = true;
+  updateTurn();
+}
+
 function resetGame() {
   // reset board
   for (let r = 0; r < 3; r++) {
@@ -127,6 +154,10 @@ function resetGame() {
 
   currentUser = "X";
   gameStatus = true;
+  x_wins = 0;
+  o_wins = 0;
+  document.querySelector(".x_wins").textContent = x_wins;
+  document.querySelector(".o_wins").textContent = o_wins;
   updateTurn();
 }
 
