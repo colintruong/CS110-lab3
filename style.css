@@ -65,3 +65,24 @@ h1 {
   width: 100%;
   text-align: center;
 }
+
+/* Mode selection screen */
+#mode-screen {
+  text-align: center;
+  margin-top: 80px;
+}
+
+#btn-pvp, #btn-ai {
+  background-color: #ff8c00;
+  color: #000000;
+  font-size: 24px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: 1px solid gray;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#btn-pvp:hover, #btn-ai:hover {
+  background-color: orange;
+}

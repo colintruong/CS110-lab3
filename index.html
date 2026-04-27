@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Tic Tac Toe Game</title>
-    
-    <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
-  </head>
-  <body>
 
+<head>
+  <meta charset="utf-8">
+  <title>Tic Tac Toe Game</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+
+  <div id="mode-screen">
+    <h1>Tic Tac Toe</h1>
+    <button id="btn-pvp">Player vs Player</button>
+    <button id="btn-ai">Player vs AI</button>
+  </div>
+
+  <div id="game-screen" style="display:none;">
     <h1>Tic Tac Toe</h1>
     <h2>Its your turn, <span class="display_player"></span>.</h2>
     <h2>X wins: <span class="x_wins">0</span> | O wins: <span class="o_wins">0</span></h2>
@@ -33,7 +42,8 @@
 
     <button class="new_game">New Game</button>
     <button class="reset">Reset</button>
-  </body>
+  </div>
 
+</body>
 
 </html>
