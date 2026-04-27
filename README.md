@@ -1,0 +1,1 @@
+# AI uses minmax algorithm
